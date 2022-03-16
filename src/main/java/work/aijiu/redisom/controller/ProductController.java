@@ -56,4 +56,11 @@ public class ProductController {
         return CommonResult.ok(pageResult.getContent());
     }
 
+    @GetMapping("/get/{name}")
+    public CommonResult getByName(@PathVariable String name){
+        List<Product> list = productRepository.findByName(name);
+        return CommonResult.ok(list);
+    }
+
+
 }
